@@ -1,0 +1,28 @@
+{{ define "body" }}
+
+<div class="text-center p-2">
+    <h6>Список заинтересованных лиц</h6>
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+            <tr><th>Name</th><th>Company</th><th>Email</th><th>Phone</th><th>Звонить\Писать</th></tr>
+        </thead>
+        <tbody>
+            {{ range . }}
+                <tr>
+                    <td>{{ .Name }}</td>
+                    <td>{{ .Company }}</td>
+                    <td>{{ .Email }}</td>
+                    <td>{{ .Phone }}</td>
+                    <td>{{if eq .MailOrCall false}}
+                            Позвонить!
+                        {{else}}
+                            Написать!
+                        {{end}}</td>
+                </tr>
+            {{ end }}
+        </tbody>
+    </table>
+
+</div>
+
+{{ end }}
